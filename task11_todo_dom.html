@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title>To-Do List (DOM)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./task11_todo_dom.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>To-Do List — динамический DOM</h1>
+
+    <!-- Добавление задачи -->
+    <form id="addForm" class="row" autocomplete="off" aria-label="Добавить задачу">
+      <input id="taskInput" type="text" placeholder="Новая задача…" required aria-label="Текст задачи" />
+      <select id="prioritySelect" aria-label="Приоритет">
+        <option value="high">Высокий</option>
+        <option value="medium" selected>Средний</option>
+        <option value="low">Низкий</option>
+      </select>
+      <button type="submit">Добавить</button>
+    </form>
+
+    <!-- Панель управления -->
+    <div class="row controls">
+      <label>Сортировать:
+        <select id="sortSelect" aria-label="Сортировка">
+          <option value="created_desc">По дате: новые сверху</option>
+          <option value="created_asc">По дате: старые сверху</option>
+          <option value="priority_desc">По приоритету: высокий → низкий</option>
+          <option value="priority_asc">По приоритету: низкий → высокий</option>
+          <option value="title_asc">По названию: A → Я</option>
+          <option value="title_desc">По названию: Я → A</option>
+        </select>
+      </label>
+
+      <label>Фильтр:
+        <select id="filterSelect" aria-label="Фильтр">
+          <option value="all" selected>Все</option>
+          <option value="pending">Невыполненные</option>
+          <option value="completed">Выполненные</option>
+        </select>
+      </label>
+
+      <button id="clearCompleted" type="button" title="Удалить выполненные">Очистить выполненные</button>
+    </div>
+
+    <!-- Список задач -->
+    <ul id="list" class="list" aria-live="polite" aria-label="Список задач"></ul>
+  </main>
+
+  <script src="./task11_todo_dom.js"></script>
+</body>
+</html>
